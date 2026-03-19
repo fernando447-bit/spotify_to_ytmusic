@@ -24,4 +24,5 @@ jobs:
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           YT_HEADERS: ${{ secrets.YT_HEADERS }}
         run: |
+          spotify_to_ytmusic update
           spotify_to_ytmusic update-playlists
