@@ -1,17 +1,17 @@
 name: Sincronizar Spotify a YTMusic
 
 on:
-  workflow_dispatch: # Esto es lo que crea el botón manual
+  workflow_dispatch:
   schedule:
-    - cron: '0 10 * * 1' # Esto lo corre solo todos los lunes a las 10 AM
+    - cron: '0 10 * * 1'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - name: Install dependencies
@@ -23,4 +23,5 @@ jobs:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           YT_HEADERS: ${{ secrets.YT_HEADERS }}
-        run: python -m spotify_to_ytmusic.main update-playlists # Si el archivo principal se llama distinto, lo corregimos luego
+        run: |
+          spotify_to_ytmusic update-playlists
