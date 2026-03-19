@@ -23,4 +23,4 @@ jobs:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           YT_HEADERS: ${{ secrets.YT_HEADERS }}
-        run: python main.py # Si el archivo principal se llama distinto, lo corregimos luego
+        run: python -m spotify_to_ytmusic.main update-playlists # Si el archivo principal se llama distinto, lo corregimos luego
